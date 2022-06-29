@@ -1,5 +1,5 @@
 
-updated: 2022-06-29 18:57:43.256775
+updated: 2022-06-29 21:19:14.454854
 private key: 0
 public key: 0
 address: 35bKSaLGG4AcEeRLtbn2kvzt4NK4j6j7oE
@@ -7,15 +7,15 @@ amount: 0.0
 total received: 0.1160629
 ====================================
 
-updated: 2022-06-29 18:57:43.467184
+updated: 2022-06-29 21:19:14.664308
 private key: 0
 public key: 0
 address: 3N5BjPE5rbkhRTwRKz6Eu5JyhSv4EeJeoL
-amount: 0.0
-total received: 0.39581315
+amount: 0.00393636
+total received: 0.39974951
 ====================================
 
-updated: 2022-06-29 18:57:43.646237
+updated: 2022-06-29 21:19:14.856872
 private key: 0
 public key: 0
 address: 35bKSaLGG4AcEeRLtbn2kvzt4NK4j6j7oE
@@ -23,10 +23,10 @@ amount: 0.0
 total received: 0.1160629
 ====================================
 
-updated: 2022-06-29 18:57:43.830963
+updated: 2022-06-29 21:19:15.069966
 private key: 0
 public key: 0
 address: 3N5BjPE5rbkhRTwRKz6Eu5JyhSv4EeJeoL
-amount: 0.0
-total received: 0.39581315
+amount: 0.00393636
+total received: 0.39974951
 ====================================
