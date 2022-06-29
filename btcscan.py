@@ -6,8 +6,6 @@ import json
 from functools import *
 from os.path import exists
 
-
-
 @lru_cache(maxsize=1000000)
 
 
@@ -27,6 +25,7 @@ class btcscan:
     text_filename = "winners.txt"
     log_filename = "btcscanlog.txt"
     ctr_filename = "btccounter.txt"
+    prefix = ""
     
     json_file = file_location + json_filename
     text_file = file_location + text_filename
@@ -41,15 +40,34 @@ class btcscan:
     # initialize object - not tested for multiple
     # concurrent instances
     
-    def __init__(self):
-        self.get_scan_counter()
+    def __init__(self, prefix=0):
+        self.prefix = str(prefix)
+
+        self.json_file = self.file_location + self.prefix + "-" + self.json_filename
+        self.text_file = self.file_location + self.prefix + "-" + self.text_filename
+        self.log_file = self.file_location + self.prefix + "-" + self.log_filename
+        self.ctr_file = self.file_location + self.prefix + "-" + self.ctr_filename
         
-        self.debugPrint("Started")
+        self.get_scan_counter()
+
+        self.log_msg(f"Initialized [{self.prefix}]")
+        
         if exists(self.json_file):
             with open(self.json_file, 'r') as openfile:
                 self.winners = json.load(openfile)
                 
-            self.debugPrint("Loading " + str(len(self.winners)) + " winners.")
+        if exists(self.text_file):
+            with open(self.text_file, 'w') as openfile:
+                openfile.write("")
+       
+        self.log_msg("Loading " + str(len(self.winners)) + " winners.")
+
+        # update all winners with current data
+        if len(self.winners):
+            for winner in self.winners:
+                w = self.winners[winner]
+                self.scan_address( w["pub_key"], w["priv_key"], w["address"])
+            
         return
 
     #############################################
@@ -66,6 +84,7 @@ class btcscan:
             if len(x):
                 self.total_scan_counter = int(x)
         
+            self.log_msg(f"Resuming scans from {x}")
         return self.total_scan_counter
 
     def set_scan_counter(self, value):
@@ -79,13 +98,13 @@ class btcscan:
     # print to screen and/or file based on control
     # variables.  ALL printing goes through here.
         
-    def debugPrint(self, msg):
+    def log_msg(self, msg):
         current_time = datetime.datetime.now()
+        
+        self.scan_log[current_time] = msg
         
         if(self.log_to_screen):
             print(f"{current_time}: {msg}")
-        
-        self.scan_log[current_time] = msg
         
         return
 
@@ -112,20 +131,21 @@ class btcscan:
         self.set_scan_counter(self.total_scan_counter + 1)
         self.scan_counter += 1
         
+        if self.log_everything:
+            self.log_msg(f"[{self.total_scan_counter}] Checking PrivKey: {self.priv_key} PubKey: {self.pub_key} Address: {self.address}")
+            
         success = self.check_address()
 
         if success < 0:
-            self.debugPrint("ERROR retrieving: " + self.address)
+            self.log_msg("ERROR retrieving: " + self.address)
 
         elif success == 0:
-            self.debugPrint("EMPTY account: " + self.address)
-
             if self.log_everything:
-                self.save_winners_json()
+                self.log_msg("EMPTY account: " + self.address)
                 self.save_winners_text()  
 
         else:
-            self.debugPrint("WINNER: " + self.address)
+            self.log_msg("WINNER: " + self.address)
             self.save_winners_json()
             self.save_winners_text()
 
@@ -160,8 +180,12 @@ class btcscan:
     # output current result to the text file
 
     def save_winners_text(self):
-        
+        current_time = datetime.datetime.now()
+   
         with open(self.text_file, 'a') as file:
+
+            file.write("\n")
+            file.write("updated: " + str(current_time))
             file.write("\n")
             file.write("private key: " + str(self.priv_key))
             file.write("\n")
@@ -171,6 +195,8 @@ class btcscan:
             file.write("\n")
             file.write("amount: " + str(self.final_balance / self.SATOSHIS_PER_BTC))
             file.write("\n")
+            file.write("total received: " + str(self.total_received / self.SATOSHIS_PER_BTC))
+            file.write("\n")                           
             file.write("====================================\n")
 
         return
@@ -189,7 +215,7 @@ class btcscan:
             self.total_received = self.response.json()[self.address]["total_received"]
 
         except: 
-            self.debugPrint("web request failure.")
+            self.log_msg("web request failure.")
             return -1
 
         if ("invalid address" in self.response.text):

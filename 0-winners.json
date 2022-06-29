@@ -1,0 +1,18 @@
+{
+    "35bKSaLGG4AcEeRLtbn2kvzt4NK4j6j7oE": {
+        "priv_key": "0",
+        "pub_key": "0",
+        "address": "35bKSaLGG4AcEeRLtbn2kvzt4NK4j6j7oE",
+        "final_balance": "0.0",
+        "total_received": "0.1160629",
+        "updated": "2022-06-29 18:57:43.645459"
+    },
+    "3N5BjPE5rbkhRTwRKz6Eu5JyhSv4EeJeoL": {
+        "priv_key": "0",
+        "pub_key": "0",
+        "address": "3N5BjPE5rbkhRTwRKz6Eu5JyhSv4EeJeoL",
+        "final_balance": "0.0",
+        "total_received": "0.39581315",
+        "updated": "2022-06-29 18:57:43.830510"
+    }
+}
