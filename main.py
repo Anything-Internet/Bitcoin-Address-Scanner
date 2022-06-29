@@ -32,22 +32,23 @@ for manual in manual_addresses:
     elif success == 0:
         print(f"[0]EMPTY account: {scanner[0].address}")
     else:
-        print(f"[0]WINNER account: {scanner[0].address} Bal: {scanner[0].final_balance}")
+        print(f"[0]WINNER account: {scanner[0].address[0:5]}... Bal: {scanner[0].final_balance}")
 
 # this needs to be asynchronous
 def scan_next(cnt):
     instance = scanner[cnt]
     success = instance.scan_random()
+    short_address = instance.address[0:5] + "..."
 
     if success < 0:
-        print(f"{Fore.RED}[{cnt}][{instance.get_scan_counter()}] ERROR checking: {instance.address}", end="\n")
+        print(f"{Fore.RED}[{cnt}][{instance.get_scan_counter()}] ERROR checking: {short_address}", end="\n")
     elif success == 0:
-        print(f"{Fore.BLUE}[{cnt}][{instance.get_scan_counter()}] EMPTY account: {instance.address}", end="\r")
+        print(f"{Fore.BLUE}[{cnt}][{instance.get_scan_counter()}] EMPTY account: {short_address}", end="\r")
     else:
-        print(f"{Fore.WHITE}[{cnt}][{instance.get_scan_counter()}] WINNER account: {instance.address}", end="\n")
-    
+        print(f"{Fore.WHITE}[{cnt}][{instance.get_scan_counter()}] WINNER account: {short_address} Bal: {instance.final_balance}", end="\n")
 
 # main loop / needs to support asynchronous
+
 while True:
     for cnt in range(len(scanner)):
         scan_next(cnt)

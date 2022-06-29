@@ -1,18 +1,13 @@
 import requests
-from bitcoin import *
+from bitcoin import random_key, privtopub, pubtoaddr
 
 import datetime
 import json
-from functools import *
 from os.path import exists
-
-@lru_cache(maxsize=1000000)
-
 
 class btcscan:
 
     # control vars
-
     log_everything = False
     log_to_screen = False
 
@@ -83,6 +78,8 @@ class btcscan:
             x = openfile.read()
             if len(x):
                 self.total_scan_counter = int(x)
+            else:
+                self.total_scan_counter = 1 # prevent looping
         
             self.log_msg(f"Resuming scans from {x}")
         return self.total_scan_counter
