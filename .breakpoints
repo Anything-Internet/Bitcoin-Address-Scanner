@@ -1,0 +1,18 @@
+{
+  "files": {
+    "btcscan.py": [
+      {
+        "id": "d8b8ef4b-dbec-4b82-a769-fb6c8db75877",
+        "line": 64,
+        "version": 2465,
+        "index": 1522
+      },
+      {
+        "id": "eb4ea79e-68c3-4913-8871-77c4697cd9fc",
+        "line": 71,
+        "version": 2465,
+        "index": 1755
+      }
+    ]
+  }
+}
