@@ -41,8 +41,6 @@ for manual in manual_addresses:
         short_address = scanner[0].address[0:5] + "..."
         print(f"{Fore.WHITE}[0][{scanner[0].get_scan_counter()}] WINNER account: {short_address} Bal: {balance}", end="\n")
 
-
-
         
 # this needs to be asynchronous
 async def scan_next(cnt):
