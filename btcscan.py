@@ -25,12 +25,12 @@ class btcscan:
     json_file = file_location + json_filename
     text_file = file_location + text_filename
     log_file = file_location + log_filename
-    ctr_file = file_location + ctr_filename
+    ctr_file = file_location + "tmp/" + ctr_filename
     btc_url = "https://blockchain.info/balance?active="
     
     winners = {}
     scan_log = {}
-
+    final_balance = 0.0
     #############################################
     # initialize object - not tested for multiple
     # concurrent instances
@@ -41,7 +41,7 @@ class btcscan:
         self.json_file = self.file_location + self.prefix + "-" + self.json_filename
         self.text_file = self.file_location + self.prefix + "-" + self.text_filename
         self.log_file = self.file_location + self.prefix + "-" + self.log_filename
-        self.ctr_file = self.file_location + self.prefix + "-" + self.ctr_filename
+        self.ctr_file = self.file_location + "tmp/" + self.prefix + "-" + self.ctr_filename
         
         self.get_scan_counter()
 

@@ -4,15 +4,15 @@
         "pub_key": "0",
         "address": "35bKSaLGG4AcEeRLtbn2kvzt4NK4j6j7oE",
         "final_balance": "0.0",
-        "total_received": "0.1160629",
-        "updated": "2022-06-29 21:19:14.856272"
+        "total_received": "0.11853714",
+        "updated": "2022-06-30 00:04:56.462286"
     },
     "3N5BjPE5rbkhRTwRKz6Eu5JyhSv4EeJeoL": {
         "priv_key": "0",
         "pub_key": "0",
         "address": "3N5BjPE5rbkhRTwRKz6Eu5JyhSv4EeJeoL",
-        "final_balance": "0.00393636",
-        "total_received": "0.39974951",
-        "updated": "2022-06-29 21:19:15.069494"
+        "final_balance": "0.0",
+        "total_received": "0.40469551",
+        "updated": "2022-06-30 00:04:56.660889"
     }
 }

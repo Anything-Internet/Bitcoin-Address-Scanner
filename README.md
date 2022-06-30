@@ -18,6 +18,7 @@ The **class btcscan** is structured so we can make it multithreaded fairly easil
 2. [done] Add ability to manually enter a btc address
 3. [done] Keep count from where left off so we have all-time counts.
 4. Add ASYNC to main to improve performance
+5. Refactor the code
 
 ## TODO List - Graphical version
 1. Add a graphical interface with TK and/or HTML
