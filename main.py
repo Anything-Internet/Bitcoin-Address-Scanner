@@ -1,6 +1,7 @@
 import datetime
 import time
 import asyncio
+import tkinter as tk
 from colorama import Fore, Back, Style, init
 import btcscan
 
