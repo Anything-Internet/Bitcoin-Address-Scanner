@@ -93,7 +93,7 @@ async def scan_next(cnt):
 
 if __name__ == "__main__":
 
-    graphics = False
+    graphics = True
 
     if graphics:
         app = mainapp.mainApp()

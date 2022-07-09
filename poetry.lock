@@ -30,6 +30,14 @@ python-versions = ">=3.6"
 frozenlist = ">=1.1.0"
 
 [[package]]
+name = "ansi"
+version = "0.3.6"
+description = "ANSI cursor movement and graphics"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "async-timeout"
 version = "4.0.2"
 description = "Timeout context manager for asyncio programs"
@@ -2401,7 +2409,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8.0,<3.9"
-content-hash = "6cff363f344a7876c4b3cc93f61c05de96d30ac31be61f3cd43724be17f9aba1"
+content-hash = "1a547ddf9c42a5dd0123dbe94a2b82a43dcd277dd2cd8c420aafcefba72ccedd"
 
 [metadata.files]
 aiohttp = [
@@ -2481,6 +2489,10 @@ aiohttp = [
 aiosignal = [
     {file = "aiosignal-1.2.0-py3-none-any.whl", hash = "sha256:26e62109036cd181df6e6ad646f91f0dcfd05fe16d0cb924138ff2ab75d64e3a"},
     {file = "aiosignal-1.2.0.tar.gz", hash = "sha256:78ed67db6c7b7ced4f98e495e572106d5c432a93e1ddd1bf475e1dc05f5b7df2"},
+]
+ansi = [
+    {file = "ansi-0.3.6-py3-none-any.whl", hash = "sha256:a83f7e6e7a9a84f4cc2904e28e575516cf42cf862777649e57615d85ac76e11d"},
+    {file = "ansi-0.3.6.tar.gz", hash = "sha256:10545ce2508e470e9208d0cc200616032fdc81b849678826fb7c81c823fd48b1"},
 ]
 async-timeout = [
     {file = "async-timeout-4.0.2.tar.gz", hash = "sha256:2163e1640ddb52b7a8c80d0a67a08587e5d245cc9c553a74a847056bc2976b15"},
