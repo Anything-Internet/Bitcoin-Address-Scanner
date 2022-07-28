@@ -98,6 +98,7 @@ if __name__ == "__main__":
     if graphics:
         app = mainapp.mainApp()
         app.mainloop()
+        print("post loop")
     else:
         asyncio.run(main())
 

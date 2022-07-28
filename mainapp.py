@@ -127,6 +127,33 @@ class CryptoStatus():
         except:
             self.text_label.config(text=self.text_label_prefix)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
     def set_process_status_text(self, id, msg):
         self.process_status_text[id] = msg
         self.show_process_list()
