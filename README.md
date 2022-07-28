@@ -30,4 +30,6 @@ The **class btcscan** is structured so we can make it multithreaded fairly easil
 
 * * * 
 
+EVENT DRIVEN STATUS UPDATE
+EVENT DRIVEN START/STOP
 
